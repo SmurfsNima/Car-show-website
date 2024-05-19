@@ -3,10 +3,10 @@ import { CarProps, filterProps } from "../types";
 
 export async function fetchCars(filters : filterProps) {
   const { manufacturer, year, fuel, limit, model } = filters
-  const api_key = process.env.REACT_APP_API_KEY;
-  const headers = { "X-Api-Key": '2GDoaXLZe5GJpEy7eaKTRA==dJ0nYUasUKgWeAjk' };
+  const PROXY_SERVER_URL = 'https://car-show-website.vercel.app/';
+  const headers = { "X-Api-Key" : '2GDoaXLZe5GJpEy7eaKTRA==dJ0nYUasUKgWeAjk'};
   const response = await fetch(
-    `https:api.api-ninjas.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+    `${PROXY_SERVER_URL}/https:api.api-ninjas.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
     { headers: headers }
   );
   const result = await response.json();
