@@ -26,7 +26,7 @@ function App() {
     }
     fetchData();
   }, [searchParams]);
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+  
   return (
     <main className="max-w-[1440px] mx-auto overflow-hidden">
       <Navbar />
@@ -48,8 +48,8 @@ function App() {
       </div>
 
       <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14 padding-x">
-        {allCars?.map((car) => (
-          <CarItem car={car} />
+        {allCars?.map((car , i) => (
+          <CarItem key={i} car={car} />
         ))}
       </div>
 
